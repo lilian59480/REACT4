@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Task from './Task/Task';
+import TaskList from './TaskList/TaskList';
 import Manager from './Manager/Manager';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import './App.css';
 
 class App extends Component {
+	
 	state = {
 		open: false
 	};
@@ -19,7 +20,29 @@ class App extends Component {
 	  };
 	
 	  render () {
+		const taskLists = [
+			{
+				title: 'Test',
+				description: 'Desc',
+				beginDate: new Date(),
+				endDate: new Date()
+			},
+			{
+				title: 'Test2',
+				description: 'Desc2',
+				beginDate: new Date(),
+				endDate: new Date()
+			},
+			{
+				title: 'Test3',
+				description: 'Desc3',
+				beginDate: new Date(),
+				endDate: new Date()
+			}
+		];
+
 	return (
+		
 		<div className="App">
 			<Button onClick={this.handleOpen}>Open Modal</Button>
 			<Modal
@@ -31,25 +54,9 @@ class App extends Component {
 							<Manager />
 
 			</Modal>
-			<Task
-				title="Test"
-				description="Desc"
-				beginDate={new Date()}
-				endDate={new Date()}
-			/>
-			<Task
-				title="Test2"
-				description="Desc"
-				beginDate={new Date()}
-				endDate={new Date()}
-			/>
-			<Task
-				title="Test3"
-				description="Desc"
-				beginDate={new Date()}
-				endDate={new Date()}
-			/>
-		</div>
+			<TaskList tasks={taskLists} />
+	</div>
+
 	);
 	}
 }

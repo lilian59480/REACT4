@@ -10,10 +10,6 @@ import './Task.css';
  *
  */
 class Task extends React.Component {
-	constructor (props) {
-		super(props);
-	}
-
 	render () {
 		const { title, description, beginDate, endDate } = this.props;
 
