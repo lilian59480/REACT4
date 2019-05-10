@@ -16,12 +16,13 @@ class Storage {
 		return this.data;
 	}
 
-	getOneByTitle (title) {
-		return this.data.find(element => title === element.title);
+	getOneById (id) {
+		return this.data.find(element => id === element.id);
 	}
 
-	add (title, description, beginDate, endDate) {
+	add (id, title, description, beginDate, endDate) {
 		this.data.push({
+			id,
 			title,
 			description,
 			beginDate,

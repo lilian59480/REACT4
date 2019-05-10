@@ -9,10 +9,10 @@ const TaskList = (props) => {
 
 	if (tasks !== null) {
 		render = tasks.getAll().map(element => {
-			const { title, description, beginDate, endDate } = element;
+			const { id, title, description, beginDate, endDate } = element;
 			return (
 				<Task
-					key={title}
+					key={id}
 					title={title}
 					description={description}
 					beginDate={beginDate}

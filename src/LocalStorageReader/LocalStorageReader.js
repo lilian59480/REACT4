@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskList from '../TaskList/TaskList';
+import Manager from '../Manager/Manager';
 import Storage from '../Storage';
 import { compose, withState, lifecycle } from 'recompose';
 
@@ -14,7 +15,10 @@ const LocalStorageReader = (props) => {
 	console.log(storage);
 
 	return (
-		<TaskList tasks={storage} />
+		<div>
+			<TaskList tasks={storage} />
+			<Manager tasks={storage} />
+		</div>
 	);
 };
 

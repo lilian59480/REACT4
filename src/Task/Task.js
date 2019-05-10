@@ -16,13 +16,13 @@ import { withStyles } from '@material-ui/core/styles';
  *
  */
 const Task = (props) => {
-	const { title, description, beginDate, endDate, classes } = props;
+	const { id, title, description, beginDate, endDate, classes } = props;
 
 	return (
 		<Card className={classes.card}>
 			<CardContent>
 				<Typography className={classes.title} color="textSecondary" gutterBottom>
-					{beginDate.toUTCString()} - {endDate.toUTCString()}
+					#{id} : {beginDate.toUTCString()} - {endDate.toUTCString()}
 				</Typography>
 				<Typography variant="h5" component="h2">
 					{title}
