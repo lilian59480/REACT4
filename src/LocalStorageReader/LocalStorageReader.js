@@ -3,7 +3,10 @@ import TaskList from '../TaskList/TaskList';
 import { compose, withState, lifecycle } from 'recompose';
 
 const allContactComponentDidMount = (setStorage) => {
-	const storage = JSON.parse(localStorage.getItem('tasks'));
+	let storage = JSON.parse(localStorage.getItem('tasks'));
+	if (!(storage instanceof Array)) {
+		storage = [];
+	}
 	storage.forEach(element => {
 		element.beginDate = new Date(element._beginDateTs);
 		element.endDate = new Date(element._endDateTs);
