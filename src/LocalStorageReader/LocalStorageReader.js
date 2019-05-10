@@ -1,16 +1,10 @@
 import React from 'react';
 import TaskList from '../TaskList/TaskList';
+import Storage from '../Storage';
 import { compose, withState, lifecycle } from 'recompose';
 
-const allContactComponentDidMount = (setStorage) => {
-	let storage = JSON.parse(localStorage.getItem('tasks'));
-	if (!(storage instanceof Array)) {
-		storage = [];
-	}
-	storage.forEach(element => {
-		element.beginDate = new Date(element._beginDateTs);
-		element.endDate = new Date(element._endDateTs);
-	});
+const localStorageReaderDidMount = (setStorage) => {
+	const storage = new Storage();
 	setStorage(storage);
 };
 
@@ -25,10 +19,10 @@ const LocalStorageReader = (props) => {
 };
 
 const enhance = compose(
-	withState('storage', 'setStorage', []),
+	withState('storage', 'setStorage', null),
 	lifecycle({
 		componentDidMount () {
-			allContactComponentDidMount(this.props.setStorage);
+			localStorageReaderDidMount(this.props.setStorage);
 		}
 	})
 );
