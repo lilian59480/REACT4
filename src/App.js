@@ -1,13 +1,32 @@
 import React from 'react';
-import Task from './Task/Task';
+import TaskList from './TaskList/TaskList';
 import './App.css';
 
 function App () {
+	const taskLists = [
+		{
+			title: 'Test',
+			description: 'Desc',
+			beginDate: new Date(),
+			endDate: new Date()
+		},
+		{
+			title: 'Test2',
+			description: 'Desc2',
+			beginDate: new Date(),
+			endDate: new Date()
+		},
+		{
+			title: 'Test3',
+			description: 'Desc3',
+			beginDate: new Date(),
+			endDate: new Date()
+		}
+	];
+
 	return (
 		<div className="App">
-			<Task title="Test" description="Desc" beginDate={new Date()} endDate={new Date()} />
-			<Task title="Test2" description="Desc" beginDate={new Date()} endDate={new Date()} />
-			<Task title="Test3" description="Desc" beginDate={new Date()} endDate={new Date()} />
+			<TaskList tasks={taskLists} />
 		</div>
 	);
 }
